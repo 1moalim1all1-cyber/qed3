@@ -19,8 +19,8 @@ async function start(){try{
 
  // Cloudinary unsigned uploads: suitable for a limited demo preset; production should sign uploads server-side.
  const cfgName=$('cloudName'),cfgPreset=$('cloudPreset');
- cfgName.value=localStorage.getItem('qed3CloudName')||'';
- cfgPreset.value=localStorage.getItem('qed3CloudPreset')||'';
+ cfgName.value=localStorage.getItem('qed3CloudName')||'xtfe29zu';
+ cfgPreset.value=localStorage.getItem('qed3CloudPreset')||'Qed3-web';
  $('saveCloudConfig').onclick=()=>{
    const cloud=cfgName.value.trim(),preset=cfgPreset.value.trim();
    if(!/^[a-zA-Z0-9_-]{2,80}$/.test(cloud)||!/^[a-zA-Z0-9_-]{2,100}$/.test(preset))return notice('اكتب Cloud name وUpload preset صحيحين');
@@ -43,5 +43,37 @@ async function start(){try{
    if(!response.ok||!data.secure_url)throw Error(data.error?.message||'تعذر رفع الصورة إلى Cloudinary');
    return data.secure_url;
  }
- $('pform').onsubmit=async e=>{e.preventDefault();const name=$('pname').value.trim(),retail=Number($('pretail').value),wholesale=Number($('pwholesale').value);if(!name||retail<0||wholesale<0||!Number.isFinite(retail)||!Number.isFinite(wholesale))return notice('تحقق من الاسم والأسعار');if($('pstock').value!==''&&(!Number.isSafeInteger(Number($('pstock').value))||Number($('pstock').value)<0))return notice('كمية المخزون يجب أن تكون عددًا صحيحًا غير سالب');try{let photo=$('pimg').value.trim();const file=$('pfile').files[0];if(file){$('uploadState').textContent='جارٍ رفع الصورة إلى Cloudinary…';photo=await uploadProductPhoto(file);$('uploadState').textContent='تم رفع الصورة، جاري حفظ المنتج…'}const id=fs.doc(products).id,batch=fs.writeBatch(db);batch.set(fs.doc(products,id),{name,brand:$('pbrand').value.trim(),retail,sku:$('psku').value.trim(),stock:$('pstock').value===''?null:Number($('pstock').value),description:$('pdesc').value.trim(),img:photo||'assets/prod1.png',createdAt:fs.serverTimestamp()});batch.set(fs.doc(prices,id),{price:wholesale});await batch.commit();$('pform').reset();$('pimgPreview').hidden=true;$('uploadState').textContent='اختار صورة من الكمبيوتر، أو استخدم رابط صورة.';notice('تمت إضافة المنتج وصورته');load()}catch(e){notice('فشل إضافة المنتج: '+e.code)}};
+ const productStatus=$('productFormStatus'),addButton=$('addProductBtn');
+ const productNotice=m=>{productStatus.textContent=m;notice(m)};
+ $('pform').addEventListener('invalid',e=>{const el=e.target;productStatus.textContent='راجع الحقل المطلوب: '+(el.placeholder||el.id||'بيانات المنتج')},true);
+ $('pform').onsubmit=async e=>{
+   e.preventDefault();
+   if(addButton.disabled)return;
+   const name=$('pname').value.trim(),retail=Number($('pretail').value),wholesale=Number($('pwholesale').value);
+   if(!name||retail<0||wholesale<0||!Number.isFinite(retail)||!Number.isFinite(wholesale))return productNotice('اكتب اسم المنتج وأسعار صحيحة');
+   if($('pstock').value!==''&&(!Number.isSafeInteger(Number($('pstock').value))||Number($('pstock').value)<0))return productNotice('المخزون لازم يكون رقم صحيح موجب أو صفر');
+   addButton.disabled=true;addButton.textContent='جارٍ حفظ المنتج…';
+   try{
+     let photo=$('pimg').value.trim();const file=$('pfile').files[0];
+     if(file){
+       if(!['image/jpeg','image/png','image/webp'].includes(file.type)||file.size>5*1024*1024)throw Error('الصورة لازم تكون JPG أو PNG أو WebP وأقل من 5 ميجابايت');
+       productNotice('جارٍ رفع الصورة إلى Cloudinary…');$('uploadState').textContent='جارٍ رفع الصورة…';
+       photo=await uploadProductPhoto(file);
+       $('uploadState').textContent='تم رفع الصورة بنجاح';
+     }
+     if(photo&&!(photo.startsWith('https://')||photo.startsWith('assets/')))throw Error('رابط الصورة لازم يبدأ بـ https://');
+     productNotice('تم رفع الصورة. جاري حفظ المنتج في Firebase…');
+     const id=fs.doc(products).id,batch=fs.writeBatch(db);
+     batch.set(fs.doc(products,id),{name,brand:$('pbrand').value.trim(),retail,sku:$('psku').value.trim(),stock:$('pstock').value===''?null:Number($('pstock').value),description:$('pdesc').value.trim(),img:photo||'assets/prod1.png',createdAt:fs.serverTimestamp()});
+     batch.set(fs.doc(prices,id),{price:wholesale});
+     await batch.commit();
+     $('pform').reset();$('pimgPreview').hidden=true;$('uploadState').textContent='اختار صورة من الكمبيوتر، أو استخدم رابط صورة.';
+     productNotice('✅ تمت إضافة المنتج بنجاح، وهتظهر صورته في المتجر');
+     await load();
+   }catch(err){
+     const reason=err?.message||err?.code||'خطأ غير معروف';
+     productNotice('❌ فشل إضافة المنتج: '+reason);
+     $('uploadState').textContent='لم يتم حفظ المنتج. راجع الخطأ أسفل الزر.';
+   }finally{addButton.disabled=false;addButton.textContent='إضافة المنتج'}
+ };
  }catch(e){notice('خطأ إعدادات Firebase: '+e.message)}}

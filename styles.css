@@ -431,3 +431,15 @@ body{animation:pageReveal .42s ease both}@keyframes pageReveal{from{opacity:0;tr
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
+
+/* Compact storefront cart + standalone account mode */
+.drawer{width:min(385px,calc(100vw - 18px));top:12px;bottom:12px;left:12px;border:1px solid #46535b;border-radius:20px;box-shadow:0 24px 90px #000b;overflow:hidden}
+.drawerHead{padding:14px 17px}.drawerHead h3{margin:0;font-size:18px}
+.cartItems{padding:12px;min-height:40px}
+.drawerFoot{padding:13px 16px;border-top:1px solid #33414b;max-height:67dvh;overflow-y:auto}
+.cartCheckoutToggle{display:block;width:100%;min-height:44px;margin-top:12px;background:linear-gradient(105deg,#e84736,#ff9e46);border:0;border-radius:12px;color:white;font-weight:700;cursor:pointer}
+#checkoutForm.checkoutCollapsed{display:none!important}
+.accountRoute{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;padding:14px 0 4px;border-top:1px solid #35424c;margin-top:20px;color:#b6c3cb;font-size:13px}
+.accountRoute button{border:0;color:#ffad78;background:transparent;font-size:14px;font-weight:700;cursor:pointer;text-decoration:underline}
+#registerFields[hidden]{display:none!important}
+@media(max-width:600px){.drawer{width:min(370px,calc(100vw - 12px));left:6px;top:6px;bottom:6px;border-radius:18px}.drawerFoot{max-height:68dvh}.accountRoute{margin-top:15px}}

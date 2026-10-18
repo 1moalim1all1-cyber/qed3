@@ -549,3 +549,11 @@ button.primary:hover,.primary:hover{filter:brightness(1.08);box-shadow:0 8px 26p
  .page-home .woodDeck>.woodSlide{opacity:1!important}
 }
 @media(max-width:420px){.page-home .wfFlipGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.page-home .wfStage{height:235px!important}.page-home .wfButtons a{font-size:12px!important;gap:5px!important}}
+
+/* Floating shortcuts: comfortably above mobile bottom browser bars */
+@media(max-width:768px){
+ body .qed3-whatsapp{position:fixed!important;right:12px!important;left:auto!important;top:auto!important;bottom:calc(114px + env(safe-area-inset-bottom,0px))!important;z-index:900!important;transform:none!important}
+ body .qchat-toggle{position:fixed!important;right:12px!important;left:auto!important;top:auto!important;bottom:calc(185px + env(safe-area-inset-bottom,0px))!important;z-index:901!important;transform:none!important}
+ body .qchat-panel{position:fixed!important;right:10px!important;left:auto!important;top:auto!important;bottom:calc(260px + env(safe-area-inset-bottom,0px))!important;max-height:min(440px,calc(100dvh - 290px))!important;z-index:902!important}
+}
+@media(max-width:390px){body .qed3-whatsapp{bottom:calc(102px + env(safe-area-inset-bottom,0px))!important}body .qchat-toggle{bottom:calc(169px + env(safe-area-inset-bottom,0px))!important}body .qchat-panel{bottom:calc(240px + env(safe-area-inset-bottom,0px))!important}}

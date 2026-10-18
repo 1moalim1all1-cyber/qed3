@@ -29,33 +29,45 @@
 </header>
 <div id="environmentNote" role="status">جاري فحص إعدادات المتجر…</div>
 <aside class="woodDots" aria-label="التنقل بين مشاهد الموقع"><button data-target="home" class="active" aria-label="المشهد الرئيسي"><span></span><small>الرئيسية</small></button><button data-target="story" aria-label="عن المتجر"><span></span><small>التجربة</small></button><button data-target="categories" aria-label="أقسام المنتجات"><span></span><small>الأقسام</small></button><button data-target="trade" aria-label="الجملة والقطاعي"><span></span><small>الجملة والقطاعي</small></button></aside><main id="woodDeck" class="woodDeck">
-  <section class="qhero woodSlide" id="home">
-    <div class="qhero-art" aria-hidden="true"><img src="assets/hero-scene.png" alt=""><div class="qhero-art-shade"></div></div>
-    <div class="qhero-copy">
-      <div class="qhero-kicker"><span class="qhero-pulse"></span> QED3 | AUTO PARTS</div>
-      <h1>قطع الغيار<br><em>اللي بتدور عليها.</em><br>في مكان واحد.</h1>
-      <p>دوّر على القطعة المناسبة، شوف تفاصيلها، وضيفها لطلبك. جملة للتجار المعتمدين وقطاعي لكل العملاء.</p>
-      <div class="qhero-actions"><a href="shop.html" class="qhero-main">تصفح قطع الغيار <span>↗</span></a><a href="wholesale.html" class="qhero-outline">طلبات الجملة <span>←</span></a></div>
-      <div class="qhero-brief"><span>01 — ابحث</span><span>02 — اختار</span><span>03 — اطلب</span></div>
-    </div>
-    <div class="qhero-side"><span>ENGINEERING THE DRIVE</span><span>QED3 / 2026</span></div>
-    <a class="qhero-scroll" href="#categories">اكتشف الأقسام <span>↓</span></a>
-  </section>
-  <section class="qstatement woodSlide" id="story"><div><span>مصمم لكل مشوار</span><h2>قطع صح.<br><strong>تجربة أسهل.</strong></h2></div><p>من أول فلتر الزيت لحد أنظمة الفرامل والتعليق — اختار القسم اللي محتاجه، واعرف تفاصيل القطعة قبل ما تبعت طلبك للمراجعة.</p></section>
-  <section class="block woodSlide" id="categories">
-    <div class="titleRow">
-      <div>
-        <span class="eyebrow small">الأقسام</span>
-        <h2>الأقسام الرئيسية</h2>
+  <section class="wfSlide wfIntro woodSlide" id="home">
+    <div class="wfContent wfColumns">
+      <div class="wfReveal">
+        <span class="wfEyebrow">QED3 / AUTOMOTIVE PARTS</span>
+        <h1>كل قطعة في مكانها.<br><strong>وكل طلب في طريقه.</strong></h1>
+        <p>متجر قطع غيار سيارات بتجربة عرض تفاعلية. اختار المنتج، اعرف تفاصيله، وضيفه للسلة. جملة للتجار وقطاعي للجميع.</p>
+        <div class="wfButtons"><a class="wfPrimary" href="shop.html">ادخل المتجر <span>↗</span></a><a class="wfSecondary" href="wholesale.html">قطاع الجملة ←</a></div>
+        <div class="wfTags"><span>قطع محرك</span><span>فلاتر وزيوت</span><span>أنظمة تعليق</span><span>كهرباء وفرامل</span></div>
       </div>
-      <a href="shop.html">عرض المنتجات ←</a>
+      <div class="wfStage wfReveal" aria-label="عرض قطع غيار ثلاثي الأبعاد">
+        <div class="wfStageGlow"></div>
+        <article class="wfPart wfPartMain"><img src="assets/prod4.png" alt="دينامو سيارة"><span>المحرك والكهرباء</span></article>
+        <article class="wfPart wfPartTop"><img src="assets/prod1.png" alt="طقم فرامل"><span>الفرامل</span></article>
+        <article class="wfPart wfPartBottom"><img src="assets/prod8.png" alt="بطارية سيارة"><span>البطاريات</span></article>
+        <div class="wfRing"></div>
+      </div>
     </div>
-    <div id="categoryGrid" class="categoryGrid"></div>
+    <div class="wfScrollCue">اسحب لأسفل لاكتشاف الأقسام <span>↓</span></div>
   </section>
-
-  <section class="qfeature woodSlide" id="trade">
-    <div class="qfeature-img"><img src="assets/workshop.png" alt="ورشة صيانة وقطع غيار سيارات" loading="lazy"></div>
-    <div class="qfeature-text"><span class="qeyebrow">WHOLESALE & RETAIL</span><h2>للمحل والورشة.<br><strong>ولعربيتك كمان.</strong></h2><p>منتجات قطاعي للعملاء، ومسار مخصص لطلبات الجملة بعد اعتماد التاجر. تفاصيل واضحة وتجهيز الطلب قبل تأكيد الشحن.</p><a href="wholesale.html">اكتشف خدمات التجار <span>↗</span></a></div>
+  <section class="wfSlide wfStory woodSlide" id="story">
+    <div class="wfContent wfColumns">
+      <div class="wfReveal"><span class="wfEyebrow">MORE THAN A CATALOG</span><h2>مش مجرد صور.<br><strong>اختيار القطعة الصح.</strong></h2><p>اعرف اسم القطعة ورقمها والعلامة التجارية، وراجع التوافق مع عربيتك قبل تأكيد الشراء. الأسعار والتوافر النهائي بيتأكدوا من المتجر.</p><a class="wfPrimary" href="shop.html">شوف المنتجات <span>↗</span></a></div>
+      <div class="wfPhotoMosaic wfReveal"><img src="assets/workshop.png" alt="ورشة سيارات" loading="lazy"><img src="assets/prod3.png" alt="مساعدات سيارات" loading="lazy"><img src="assets/prod7.png" alt="فلتر زيت" loading="lazy"></div>
+    </div>
+  </section>
+  <section class="wfSlide wfCategories woodSlide" id="categories">
+    <div class="wfContent"><div class="wfReveal"><span class="wfEyebrow">SHOP BY SYSTEM</span><h2>تصفح حسب <strong>نظام العربية.</strong></h2><p>مرّر الماوس على القطعة علشان تشوف معلومات القسم. على الموبايل اضغط على البطاقة.</p></div>
+    <div class="wfFlipGrid">
+      <a class="wfFlip wfReveal" href="shop.html"><span class="wfFlipInner"><span class="wfFace wfFront"><img src="assets/cat6.png" alt=""><b>قطع المحرك</b></span><span class="wfFace wfBack"><b>قطع المحرك</b><small>سيور، شمعات، طلمبات وحساسات</small><i>عرض المنتجات ↗</i></span></span></a>
+      <a class="wfFlip wfReveal" href="shop.html"><span class="wfFlipInner"><span class="wfFace wfFront"><img src="assets/cat8.png" alt=""><b>الفرامل</b></span><span class="wfFace wfBack"><b>نظام الفرامل</b><small>تيل، طنابير، ماستر وملحقات</small><i>عرض المنتجات ↗</i></span></span></a>
+      <a class="wfFlip wfReveal" href="shop.html"><span class="wfFlipInner"><span class="wfFace wfFront"><img src="assets/cat4.png" alt=""><b>الفلاتر</b></span><span class="wfFace wfBack"><b>الفلاتر</b><small>فلاتر الزيت والهواء والوقود</small><i>عرض المنتجات ↗</i></span></span></a>
+      <a class="wfFlip wfReveal" href="shop.html"><span class="wfFlipInner"><span class="wfFace wfFront"><img src="assets/cat7.png" alt=""><b>نظام التعليق</b></span><span class="wfFace wfBack"><b>التعليق والعفشة</b><small>مساعدات، مقصات وجلب</small><i>عرض المنتجات ↗</i></span></span></a>
+    </div></div>
+  </section>
+  <section class="wfSlide wfTrade woodSlide" id="trade">
+    <div class="wfContent wfColumns">
+      <div class="wfReveal"><span class="wfEyebrow">WHOLESALE / RETAIL</span><h2>قطعة واحدة؟<br><strong>ولا طلبية محل كاملة؟</strong></h2><p>نفس المتجر بيخدم العميل القطاعي والتاجر. التاجر بيطلب اعتماد حسابه، وبعد الموافقة بيشوف أسعار الجملة الخاصة به.</p><div class="wfButtons"><a href="wholesale.html" class="wfPrimary">سجل كتاجر ↗</a><a href="shop.html" class="wfSecondary">تسوق قطاعي ←</a></div></div>
+      <div class="wfTradeVisual wfReveal"><img src="assets/wholesale-warehouse.png" alt="مخزن قطع غيار" loading="lazy"><div><b>QED3</b><span>أطلب، راجع، وأكد.</span></div></div>
+    </div>
   </section>
   <section class="block" id="products">
     <div class="titleRow">

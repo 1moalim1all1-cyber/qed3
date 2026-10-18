@@ -476,3 +476,8 @@ body{animation:pageReveal .42s ease both}@keyframes pageReveal{from{opacity:0;tr
 .qed3-edit-banner{position:fixed;top:0;left:0;right:0;background:#ffc06e;color:#111;padding:10px;text-align:center;z-index:600;font-weight:bold}
 .qed3-editable{outline:2px dashed #ff9a3d!important;outline-offset:4px;cursor:pointer!important}
 @media(max-width:600px){.qchat-toggle,.qed3-whatsapp{right:10px;padding:11px 13px;font-size:12px}.qchat-toggle{bottom:68px}.qed3-whatsapp{bottom:12px}.qchat-panel{right:8px;bottom:120px;width:calc(100vw - 16px);height:min(455px,calc(100dvh - 145px))}}
+
+/* Always-visible WhatsApp once a valid number is configured; public store location */
+.qed3-whatsapp:not([hidden]){display:inline-flex!important;align-items:center;justify-content:center;z-index:510!important;min-width:105px;min-height:45px}
+.qed3-address{display:flex;gap:14px;flex-wrap:wrap;align-items:center;line-height:1.7;max-width:100%;font-size:13px}
+.qed3-address a{color:#ffb581;text-decoration:underline}

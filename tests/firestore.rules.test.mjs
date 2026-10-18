@@ -59,3 +59,30 @@ test('admin may delete orders',async()=>{
 test('customer cannot self-approve dealer account',async()=>{
  await assertFails(updateDoc(doc(customer,'users','customer'),{dealerApproved:true}));
 });
+
+const validOrder=(uid='customer',mode='retail',items=[{productId:'p1',quantity:2}])=>({
+ userId:uid,status:'pending_review',items,requestedMode:mode,paymentMethod:'cod',
+ buyer:{name:'Test Customer',phone:'01012345678',governorate:'Alexandria',address:'Street 11 Building 3'},
+ createdAt:new Date(),note:'test'
+});
+test('legitimate retail order is accepted',async()=>{
+ await assertSucceeds(setDoc(doc(customer,'orders','retail-valid'),validOrder()));
+});
+test('cannot create order for a different user',async()=>{
+ await assertFails(setDoc(doc(customer,'orders','other-user'),validOrder('other')));
+});
+test('wholesale order requires dealer approval',async()=>{
+ await assertFails(setDoc(doc(customer,'orders','not-approved'),validOrder('customer','wholesale')));
+ await assertSucceeds(setDoc(doc(dbAs('dealer'),'orders','approved-dealer'),validOrder('dealer','wholesale')));
+});
+test('all order items validated, not only first item',async()=>{
+ await assertFails(setDoc(doc(customer,'orders','invalid-second'),validOrder('customer','retail',[{productId:'p1',quantity:1},{productId:'p1',quantity:-100}])));
+ await assertFails(setDoc(doc(customer,'orders','invalid-third'),validOrder('customer','retail',[{productId:'p1',quantity:1},{productId:'p1',quantity:1},{productId:'p1',quantity:1.5}])));
+});
+test('order line quantity and product id constraints',async()=>{
+ await assertFails(setDoc(doc(customer,'orders','bad-id'),validOrder('customer','retail',[{productId:'',quantity:1}])));
+ await assertFails(setDoc(doc(customer,'orders','extra-field'),validOrder('customer','retail',[{productId:'p1',quantity:1,retail:0}])));
+});
+test('maximum of 10 validated order lines',async()=>{
+ await assertFails(setDoc(doc(customer,'orders','too-many'),validOrder('customer','retail',Array.from({length:11},()=>({productId:'p1',quantity:1})))));
+});

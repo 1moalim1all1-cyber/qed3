@@ -284,3 +284,53 @@ body{animation:pageReveal .42s ease both}@keyframes pageReveal{from{opacity:0;tr
 .woodDots button:hover small,.woodDots button.active small{opacity:1;transform:none}
 @media(max-width:900px){.woodDots{display:none}.page-home .woodSlide{scroll-margin-top:80px}}
 @media(prefers-reduced-motion:reduce){.page-home .woodDeck{scroll-behavior:auto;scroll-snap-type:none}.page-home .woodSlide *{transition:none!important}}
+
+/* Faithful Wood Factory-style slide presentation for Qed3 */
+.page-home .woodDeck{background:linear-gradient(135deg,#070d12,#121a21 48%,#070a0e)}
+.page-home .woodDeck>.wfSlide{background:radial-gradient(circle at 85% 15%,rgba(240,100,48,.12),transparent 45%),linear-gradient(130deg,#080d12,#101b25);color:#faf5f0}
+.page-home .wfSlide{position:relative;padding:80px 6vw 40px;isolation:isolate}
+.page-home .wfContent{max-width:1300px;width:100%;margin:auto}
+.page-home .wfColumns{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:6vw}
+.page-home .wfEyebrow{display:inline-block;color:#f8ab6e;font-size:13px;font-weight:800;letter-spacing:.11em;margin-bottom:18px}
+.page-home .wfSlide h1,.page-home .wfSlide h2{font-size:clamp(38px,4.7vw,76px);line-height:1.2;letter-spacing:-.035em;margin:0 0 24px}
+.page-home .wfSlide h1 strong,.page-home .wfSlide h2 strong{color:#ffad73}
+.page-home .wfSlide p{color:#c5d1d9;font-size:clamp(14px,1.3vw,18px);line-height:2;max-width:620px}
+.page-home .wfButtons{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0 20px}
+.page-home .wfButtons a,.page-home .wfPrimary,.page-home .wfSecondary{display:inline-flex;align-items:center;gap:24px;padding:14px 24px;border-radius:13px;font-weight:800;transition:transform .25s;background:#ee7940;color:#101318}
+.page-home .wfSecondary{background:#18232c;color:#fff;border:1px solid #46515b}
+.page-home .wfButtons a:hover,.page-home .wfPrimary:hover{transform:translateY(-5px)}
+.page-home .wfTags{display:flex;gap:8px;flex-wrap:wrap}.page-home .wfTags span{border:1px solid #49525b;border-radius:99px;color:#ced6db;padding:7px 11px;font-size:12px}
+.page-home .wfStage{height:min(520px,66vh);position:relative;perspective:1100px;transform-style:preserve-3d}
+.page-home .wfStageGlow{position:absolute;inset:12%;background:radial-gradient(circle,rgba(255,110,50,.22),rgba(50,100,145,.12),transparent 70%);filter:blur(24px)}
+.page-home .wfPart{position:absolute;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.22);background:linear-gradient(145deg,#202e38,#10171d);box-shadow:0 25px 65px #0009;transform-style:preserve-3d;transition:transform .45s}
+.page-home .wfPart img{width:100%;height:85%;object-fit:contain;padding:17px;filter:drop-shadow(0 20px 16px #0008)}
+.page-home .wfPart span{display:block;text-align:center;font-weight:700;color:#e5edf1;font-size:13px}
+.page-home .wfPartMain{width:62%;height:82%;top:9%;right:20%;transform:rotateY(-14deg) rotateX(5deg)}
+.page-home .wfPartTop{width:43%;height:40%;top:0;left:0;transform:rotateY(16deg) rotateX(8deg) translateZ(45px)}
+.page-home .wfPartBottom{width:42%;height:38%;bottom:0;left:0;transform:rotateY(16deg) translateZ(55px)}
+.page-home .wfStage:hover .wfPartMain{transform:rotateY(-7deg) rotateX(3deg) translateY(-12px)}
+.page-home .wfStage:hover .wfPartTop{transform:rotateY(5deg) translateY(-16px) translateZ(50px)}
+.page-home .wfStage:hover .wfPartBottom{transform:rotateY(8deg) translateY(-8px) translateZ(55px)}
+.page-home .wfScrollCue{position:absolute;bottom:20px;right:6vw;color:#cbd5dd;font-size:12px;display:flex;gap:15px}
+.page-home .wfPhotoMosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:220px 220px;gap:14px}
+.page-home .wfPhotoMosaic img{width:100%;height:100%;object-fit:contain;background:#18242c;border-radius:20px;border:1px solid #35424d;padding:12px}
+.page-home .wfPhotoMosaic img:first-child{grid-row:span 2;object-fit:cover;padding:0}
+.page-home .wfCategories .wfContent{display:flex;flex-direction:column;justify-content:center}
+.page-home .wfCategories .wfContent>div:first-child{margin-bottom:18px}
+.page-home .wfFlipGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.page-home .wfFlip{height:255px;perspective:1100px;display:block}
+.page-home .wfFlipInner{display:block;position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .7s}
+.page-home .wfFlip:hover .wfFlipInner,.page-home .wfFlip:focus .wfFlipInner{transform:rotateY(180deg)}
+.page-home .wfFace{position:absolute;inset:0;backface-visibility:hidden;border:1px solid #485866;border-radius:19px;background:linear-gradient(155deg,#22313b,#10181e);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:17px;text-align:center;gap:15px}
+.page-home .wfFace img{height:155px;width:100%;object-fit:contain;filter:drop-shadow(0 12px 17px #0009)}
+.page-home .wfFace b{font-size:18px}.page-home .wfBack{transform:rotateY(180deg);background:linear-gradient(145deg,#ee7a40,#9b381f);color:white}
+.page-home .wfBack small{font-size:14px;line-height:1.8}.page-home .wfBack i{font-style:normal;font-size:12px;margin-top:12px}
+.page-home .wfTradeVisual{height:400px;position:relative;border-radius:22px;overflow:hidden;border:1px solid #4c5b65}
+.page-home .wfTradeVisual img{width:100%;height:100%;object-fit:cover}
+.page-home .wfTradeVisual>div{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,#090e11e8);padding:55px 30px 26px;display:flex;justify-content:space-between;align-items:end}
+.page-home .wfTradeVisual b{font-size:40px;color:#fff}.page-home .wfTradeVisual span{color:#f7b68f}
+.page-home .wfSlide .wfReveal{transition:opacity .7s,transform .7s}
+.page-home .wfSlide:not(.woodActive) .wfReveal{opacity:.15;transform:translateY(35px)}
+@media(max-width:900px){.page-home .wfSlide{padding:90px 5% 55px}.page-home .wfColumns{grid-template-columns:1fr}.page-home .wfStage{height:390px}.page-home .wfFlipGrid{grid-template-columns:repeat(2,1fr)}.page-home .wfPhotoMosaic{display:none}.page-home .wfSlide:not(.woodActive) .wfReveal{opacity:1;transform:none}}
+@media(max-width:540px){.page-home .wfStage{height:290px}.page-home .wfFlipGrid{grid-template-columns:repeat(2,1fr)}.page-home .wfFlip{height:170px}.page-home .wfFace img{height:90px}.page-home .wfFace b{font-size:14px}.page-home .wfSlide h1,.page-home .wfSlide h2{font-size:37px}.page-home .wfTags{display:none}}
+@media(prefers-reduced-motion:reduce){.page-home .wfSlide .wfReveal,.page-home .wfFlipInner,.page-home .wfPart{transition:none}}

@@ -1,0 +1,8 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": ["firebase.json","firestore.rules","firestore.indexes.json","**/.*","**/node_modules/**","reference.png","README.md","SETUP.md","*.zip","deploy-windows.cmd","deploy-mac-linux.sh","START_HERE_AR.md"],
+    "headers": [{"source":"**","headers":[{"key":"X-Content-Type-Options","value":"nosniff"},{"key":"Referrer-Policy","value":"strict-origin-when-cross-origin"},{"key":"X-Frame-Options","value":"DENY"}]}]
+  },
+  "firestore": {"rules":"firestore.rules","indexes":"firestore.indexes.json"}
+}

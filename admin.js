@@ -21,11 +21,12 @@ async function start(){try{
  const cfgName=$('cloudName'),cfgPreset=$('cloudPreset');
  cfgName.value=localStorage.getItem('qed3CloudName')||'xtfe29zu';
  cfgPreset.value=localStorage.getItem('qed3CloudPreset')||'Qed3-web';
+ $('cloudSettings').open=false;
  $('saveCloudConfig').onclick=()=>{
    const cloud=cfgName.value.trim(),preset=cfgPreset.value.trim();
    if(!/^[a-zA-Z0-9_-]{2,80}$/.test(cloud)||!/^[a-zA-Z0-9_-]{2,100}$/.test(preset))return notice('اكتب Cloud name وUpload preset صحيحين');
    localStorage.setItem('qed3CloudName',cloud);localStorage.setItem('qed3CloudPreset',preset);
-   notice('تم حفظ إعداد Cloudinary في المتصفح');
+   notice('تم حفظ إعداد Cloudinary في المتصفح');$('cloudSettings').open=false;
  };
  $('pfile').onchange=()=>{
    const file=$('pfile').files[0],preview=$('pimgPreview');

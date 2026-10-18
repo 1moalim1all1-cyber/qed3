@@ -443,3 +443,8 @@ body{animation:pageReveal .42s ease both}@keyframes pageReveal{from{opacity:0;tr
 .accountRoute button{border:0;color:#ffad78;background:transparent;font-size:14px;font-weight:700;cursor:pointer;text-decoration:underline}
 #registerFields[hidden]{display:none!important}
 @media(max-width:600px){.drawer{width:min(370px,calc(100vw - 12px));left:6px;top:6px;bottom:6px;border-radius:18px}.drawerFoot{max-height:68dvh}.accountRoute{margin-top:15px}}
+
+/* Verified admin tools only */
+.adminEntry{display:inline-flex;align-items:center;white-space:nowrap;padding:10px 14px;border-radius:12px;background:linear-gradient(110deg,#fa713c,#d83d39);color:#fff!important;font-weight:700;font-size:13px}
+.adminEntry[hidden]{display:none!important}
+@media(max-width:600px){.adminEntry{order:3;width:100%;justify-content:center;padding:12px}}

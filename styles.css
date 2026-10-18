@@ -557,3 +557,49 @@ button.primary:hover,.primary:hover{filter:brightness(1.08);box-shadow:0 8px 26p
  body .qchat-panel{position:fixed!important;right:10px!important;left:auto!important;top:auto!important;bottom:calc(260px + env(safe-area-inset-bottom,0px))!important;max-height:min(440px,calc(100dvh - 290px))!important;z-index:902!important}
 }
 @media(max-width:390px){body .qed3-whatsapp{bottom:calc(102px + env(safe-area-inset-bottom,0px))!important}body .qchat-toggle{bottom:calc(169px + env(safe-area-inset-bottom,0px))!important}body .qchat-panel{bottom:calc(240px + env(safe-area-inset-bottom,0px))!important}}
+
+/* Qed3 consistent small-screen usability across storefront and admin */
+@media(max-width:768px){
+ html,body{max-width:100%;overflow-x:clip}
+ main,section,article,.block,.header,.admin,.adminMain,.adminSection{min-width:0;max-width:100%}
+ img,video,canvas,iframe{max-width:100%}
+ .header{width:100%;max-width:100vw;box-sizing:border-box;gap:6px!important}
+ .header .brand{min-width:0;flex:0 1 auto}
+ .header .actions{display:flex;flex:0 0 auto;align-items:center;gap:5px!important}
+ .header .topSearch{display:none!important}
+ .header .iconBtn{padding:8px!important;min-width:42px;min-height:44px}
+ .header .iconBtn span{font-size:12px}
+ .header nav{max-width:100vw!important}
+ .productGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+ .productCard{width:100%!important;min-width:0!important}
+ .productCard img{max-width:100%;object-fit:contain}
+ .shopToolbar{display:flex;flex-wrap:wrap;gap:10px}
+ .shopToolbar>*{min-width:0;max-width:100%}
+ .shopToolbar select{max-width:100%}
+ .promoGrid,.businessGrid,.categoryGrid{max-width:100%}
+ .adminWorkspace,.adminMain,.adminSection{min-width:0;width:100%}
+ .adminSidebar{max-width:100%;overflow-x:auto}
+ .admin form,.admin .table{min-width:0;max-width:100%;overflow-wrap:anywhere}
+ .admin input,.admin select,.admin textarea{max-width:100%;min-width:0}
+ .rows>div{min-width:0;overflow-wrap:anywhere}
+ .modal,.accountModal{max-width:100vw;padding:10px!important;overflow-y:auto}
+ .modalCard,.accountCard{width:min(100%,460px)!important;max-width:100%!important;max-height:calc(100dvh - 24px);overflow-y:auto}
+ #cartDrawer.drawer{max-width:calc(100vw - 16px)!important}
+ #cartDrawer .drawerFoot{min-width:0}
+ .qchat-panel{width:min(370px,calc(100vw - 20px))!important;max-height:calc(100dvh - 275px)!important}
+}
+@media(max-width:480px){
+ .header .brand small{display:none}
+ .header .brand b{font-size:12px!important}
+ .header .actions{gap:3px!important}
+ .header .iconBtn{padding:6px!important;font-size:16px!important}
+ .page-home .wfFlipGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .page-home .wfTags{gap:6px}
+ .productGrid{gap:8px!important}
+ .productCard{padding:9px!important}
+ .productCard h3{font-size:13px}
+ .adminStats article{padding:12px}
+ .adminStats strong{font-size:21px!important}
+ .admin .titleRow{flex-wrap:wrap;gap:8px}
+ .qchat-toggle .robot-label{display:inline}
+}

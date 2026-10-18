@@ -1,6 +1,6 @@
 // Qed3 Firebase Web App configuration. Paste your WEB API key in apiKey.
 export const firebaseConfig = {
-  apiKey: "PASTE_QED3_WEB_API_KEY_HERE",
+  apiKey: "AIzaSyCHdYJ9BfLx0px9lUyesjPXAFfUZ1J-qac",
   authDomain: "qed3-2a2d8.firebaseapp.com",
   projectId: "qed3-2a2d8",
   storageBucket: "qed3-2a2d8.firebasestorage.app",

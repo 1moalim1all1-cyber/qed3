@@ -481,3 +481,39 @@ body{animation:pageReveal .42s ease both}@keyframes pageReveal{from{opacity:0;tr
 .qed3-whatsapp:not([hidden]){display:inline-flex!important;align-items:center;justify-content:center;z-index:510!important;min-width:105px;min-height:45px}
 .qed3-address{display:flex;gap:14px;flex-wrap:wrap;align-items:center;line-height:1.7;max-width:100%;font-size:13px}
 .qed3-address a{color:#ffb581;text-decoration:underline}
+
+/* Qed3 launch polish: accessible controls and mobile-first layout */
+:root{--orange:#ffa75a;--focus:#ffd095}
+button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--focus)!important;outline-offset:3px}
+button:disabled{opacity:.58;cursor:not-allowed!important}
+.header{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.075)}
+.header .brand{min-width:0}
+.header .brand b{line-height:1.5}
+.iconBtn,.menu{min-height:44px;min-width:44px}
+button.primary,.primary{transition:transform .15s,box-shadow .2s,filter .2s}
+button.primary:hover,.primary:hover{filter:brightness(1.08);box-shadow:0 8px 26px rgba(255,145,68,.18)}
+.productCard,.categoryCard{transition:transform .18s,border-color .2s,box-shadow .2s}
+.productCard:hover,.categoryCard:hover{border-color:rgba(255,163,85,.42);box-shadow:0 12px 35px rgba(0,0,0,.2)}
+.cartCheckoutToggle,#closeCart{cursor:pointer}
+.qchat-toggle{right:14px;bottom:82px;max-width:calc(100vw - 30px)}
+.qed3-whatsapp{right:14px;bottom:16px}
+.qed3-whatsapp.not-configured{background:#344750;color:#e0e8ed;border:1px solid #60717b}
+.qchat-panel{right:14px}
+@media(max-width:768px){
+ .header{padding-left:12px!important;padding-right:12px!important}
+ .header .actions{gap:5px!important;min-width:0}
+ .header .brand small{font-size:10px}
+ .header .brand b{font-size:clamp(12px,3.3vw,18px)}
+ .header nav.mobileOpen{max-height:min(65dvh,480px);overflow-y:auto}
+ .qchat-toggle{right:10px;bottom:70px}
+ .qed3-whatsapp{right:10px;bottom:12px}
+ .qchat-panel{right:8px;bottom:128px;max-height:calc(100dvh - 145px)}
+ .adminNav{min-height:44px}
+}
+@media(max-width:400px){
+ .header .brand small{display:none}
+ .qchat-toggle{font-size:12px;padding:10px 12px}
+ .qed3-whatsapp{font-size:12px;padding:10px 12px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}

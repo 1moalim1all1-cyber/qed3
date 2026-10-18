@@ -256,3 +256,31 @@ body{animation:pageReveal .42s ease both}@keyframes pageReveal{from{opacity:0;tr
 @media(max-width:900px){.page-home .qhero{min-height:650px}.page-home .qhero-copy{padding:95px 6%}.page-home .qhero-art-shade{background:linear-gradient(270deg,rgba(4,9,13,.91),rgba(4,9,13,.48))}.page-home .qhero-side{display:none}.page-home .qstatement,.page-home .qfeature{grid-template-columns:1fr}.page-home .qstatement{padding:70px 5% 50px;gap:14px}.page-home .qfeature-text{padding:36px}.page-home #categories .categoryGrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.page-home .qhero{min-height:620px}.page-home .qhero-copy{padding:65px 6% 90px}.page-home .qhero h1{font-size:43px}.page-home .qhero-actions a{width:100%}.page-home .qhero-brief{gap:13px;margin-top:28px;font-size:10px}.page-home .qfeature-img{min-height:240px}.page-home .qfeature h2{font-size:38px}.page-home #categories .categoryCard{min-height:150px}.page-home #categories .categoryCard img{height:75px}}
 @media(prefers-reduced-motion:reduce){.page-home .qhero-art img{animation:none}}
+
+/* Wood Factory-inspired full viewport sequence — homepage only */
+@media(min-width:901px){
+.page-home{height:100vh;overflow:hidden}
+.page-home .woodDeck{height:calc(100vh - 126px);overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#bc704c #10171c}
+.page-home .woodSlide{position:relative;min-height:calc(100vh - 126px);height:calc(100vh - 126px);scroll-snap-align:start;scroll-snap-stop:always;margin:0 auto;display:flex;align-items:center;justify-content:center;max-width:none;overflow:hidden}
+.page-home #home{height:calc(100vh - 126px);min-height:0}
+.page-home #story{padding:6vw;display:grid;grid-template-columns:1fr .8fr;align-content:center;background:radial-gradient(circle at 20% 20%,#263441,#090e12 65%);gap:6vw}
+.page-home #categories{padding:60px 7vw;display:flex;flex-direction:column;justify-content:center}
+.page-home #categories .categoryGrid{width:min(1260px,100%);margin:0 auto;grid-template-columns:repeat(5,1fr)}
+.page-home #categories .titleRow{width:min(1260px,100%);margin:0 auto 26px}
+.page-home #trade{width:100%;max-width:none;margin:0;grid-template-columns:1.1fr 1fr}
+.page-home #trade .qfeature-img{height:100%}
+.page-home #trade .qfeature-text{padding:7vw}
+.page-home footer{display:none}
+.page-home .woodDeck>.woodSlide{opacity:.78;transition:opacity .65s ease}
+.page-home .woodDeck>.woodSlide.woodActive{opacity:1}
+.page-home .woodSlide .qhero-copy,.page-home .woodSlide .qstatement>div,.page-home .woodSlide .qstatement>p,.page-home .woodSlide .qfeature-text,.page-home .woodSlide .categoryCard{transition:transform .75s cubic-bezier(.2,.75,.25,1),opacity .75s ease}
+.page-home .woodSlide:not(.woodActive) .qhero-copy,.page-home .woodSlide:not(.woodActive) .qstatement>div,.page-home .woodSlide:not(.woodActive) .qstatement>p,.page-home .woodSlide:not(.woodActive) .qfeature-text{transform:translateY(36px);opacity:.28}
+}
+.woodDots{position:fixed;z-index:120;top:50%;left:18px;transform:translateY(-50%);display:flex;flex-direction:column;gap:13px}
+.woodDots button{background:none;border:0;color:#fff;display:flex;align-items:center;gap:8px;cursor:pointer;font-size:11px;opacity:.58;transition:opacity .22s}
+.woodDots button span{display:block;width:8px;height:8px;border:1px solid #fff;border-radius:50%;transition:.22s}
+.woodDots button.active{opacity:1}.woodDots button.active span{background:#ff955a;border-color:#ff955a;box-shadow:0 0 0 5px rgba(255,149,90,.12)}
+.woodDots button small{opacity:0;transform:translateX(5px);transition:.2s}
+.woodDots button:hover small,.woodDots button.active small{opacity:1;transform:none}
+@media(max-width:900px){.woodDots{display:none}.page-home .woodSlide{scroll-margin-top:80px}}
+@media(prefers-reduced-motion:reduce){.page-home .woodDeck{scroll-behavior:auto;scroll-snap-type:none}.page-home .woodSlide *{transition:none!important}}

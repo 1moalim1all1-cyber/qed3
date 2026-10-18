@@ -28,8 +28,8 @@
   </div>
 </header>
 <div id="environmentNote" role="status">جاري فحص إعدادات المتجر…</div>
-<main>
-  <section class="qhero" id="home">
+<aside class="woodDots" aria-label="التنقل بين مشاهد الموقع"><button data-target="home" class="active" aria-label="المشهد الرئيسي"><span></span><small>الرئيسية</small></button><button data-target="story" aria-label="عن المتجر"><span></span><small>التجربة</small></button><button data-target="categories" aria-label="أقسام المنتجات"><span></span><small>الأقسام</small></button><button data-target="trade" aria-label="الجملة والقطاعي"><span></span><small>الجملة والقطاعي</small></button></aside><main id="woodDeck" class="woodDeck">
+  <section class="qhero woodSlide" id="home">
     <div class="qhero-art" aria-hidden="true"><img src="assets/hero-scene.png" alt=""><div class="qhero-art-shade"></div></div>
     <div class="qhero-copy">
       <div class="qhero-kicker"><span class="qhero-pulse"></span> QED3 | AUTO PARTS</div>
@@ -41,8 +41,8 @@
     <div class="qhero-side"><span>ENGINEERING THE DRIVE</span><span>QED3 / 2026</span></div>
     <a class="qhero-scroll" href="#categories">اكتشف الأقسام <span>↓</span></a>
   </section>
-  <section class="qstatement"><div><span>مصمم لكل مشوار</span><h2>قطع صح.<br><strong>تجربة أسهل.</strong></h2></div><p>من أول فلتر الزيت لحد أنظمة الفرامل والتعليق — اختار القسم اللي محتاجه، واعرف تفاصيل القطعة قبل ما تبعت طلبك للمراجعة.</p></section>
-  <section class="block" id="categories">
+  <section class="qstatement woodSlide" id="story"><div><span>مصمم لكل مشوار</span><h2>قطع صح.<br><strong>تجربة أسهل.</strong></h2></div><p>من أول فلتر الزيت لحد أنظمة الفرامل والتعليق — اختار القسم اللي محتاجه، واعرف تفاصيل القطعة قبل ما تبعت طلبك للمراجعة.</p></section>
+  <section class="block woodSlide" id="categories">
     <div class="titleRow">
       <div>
         <span class="eyebrow small">الأقسام</span>
@@ -53,7 +53,7 @@
     <div id="categoryGrid" class="categoryGrid"></div>
   </section>
 
-  <section class="qfeature">
+  <section class="qfeature woodSlide" id="trade">
     <div class="qfeature-img"><img src="assets/workshop.png" alt="ورشة صيانة وقطع غيار سيارات" loading="lazy"></div>
     <div class="qfeature-text"><span class="qeyebrow">WHOLESALE & RETAIL</span><h2>للمحل والورشة.<br><strong>ولعربيتك كمان.</strong></h2><p>منتجات قطاعي للعملاء، ومسار مخصص لطلبات الجملة بعد اعتماد التاجر. تفاصيل واضحة وتجهيز الطلب قبل تأكيد الشحن.</p><a href="wholesale.html">اكتشف خدمات التجار <span>↗</span></a></div>
   </section>
@@ -177,6 +177,6 @@
 <div id="overlay" class="overlay"></div>
 <div id="modal" class="modal"><div class="modalCard"><button id="closeModal" class="close">×</button><h3 id="modalTitle">تسجيل الدخول</h3><form id="authForm"><select id="authMode"><option value="register">إنشاء حساب جديد</option><option value="login">تسجيل الدخول لحساب موجود</option></select><input id="nameField" placeholder="الاسم"><input id="phoneField" placeholder="رقم الهاتف"><input id="emailField" type="email" placeholder="البريد الإلكتروني"><input id="passwordField" type="password" placeholder="كلمة المرور (6 أحرف على الأقل)" required minlength="6"><select id="roleField"><option value="customer">عميل قطاعي</option><option value="dealer">تاجر / محل / ورشة</option></select><button class="primary full">حفظ ومتابعة</button></form></div></div>
 <div id="productModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="productModalTitle"><div class="modalCard productDetail"><button id="closeProduct" class="close" aria-label="إغلاق">×</button><img id="detailImage" alt="صورة المنتج"><div><small id="detailBrand"></small><h3 id="productModalTitle"></h3><p id="detailDescription"></p><strong id="detailPrice"></strong><p class="detailDisclaimer">السعر استرشادي لحين تأكيد الطلب والتوافر.</p><button id="detailAdd" class="primary full">إضافة إلى السلة</button></div></div></div><div id="toast" class="toast"></div>
-<script type="module" src="app.js"></script>
+<script defer src="wood-motion.js"></script><script type="module" src="app.js"></script>
 </body>
 </html>

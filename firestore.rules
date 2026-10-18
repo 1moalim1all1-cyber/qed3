@@ -4,12 +4,19 @@ service cloud.firestore {
     function signedIn() { return request.auth != null; }
     function admin() { return signedIn() && request.auth.token.admin == true; }
     // Roles must only be granted using trusted Firebase Admin SDK.
-    function role(r) { return signedIn() && request.auth.token.role == r; }
+    function role(r) { return signedIn() && (request.auth.token.role == r || (exists(/databases/$(database)/documents/staffRoles/$(request.auth.uid)) && get(/databases/$(database)/documents/staffRoles/$(request.auth.uid)).data.role == r)); }
     function catalogEditor() { return admin() || role('catalog_manager'); }
     function orderManager() { return admin() || role('order_manager'); }
     function supportAgent() { return admin() || role('support_agent'); }
     function owner(uid) { return signedIn() && request.auth.uid == uid; }
     function dealer() { return signedIn() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.dealerApproved == true; }
+    match /staffRoles/{uid} {
+      allow read: if admin() || owner(uid);
+      allow create, update: if admin() && uid != request.auth.uid
+        && request.resource.data.keys().hasOnly(['role','updatedAt'])
+        && request.resource.data.role in ['catalog_manager','order_manager','support_agent','none'];
+      allow delete: if admin() && uid != request.auth.uid;
+    }
     match /siteSettings/{id} {
       allow read: if id == 'public';
       allow write: if id == 'public' && admin();

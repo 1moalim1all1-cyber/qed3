@@ -527,3 +527,25 @@ button.primary:hover,.primary:hover{filter:brightness(1.08);box-shadow:0 8px 26p
 .qed3-whatsapp.not-configured{background:#344650!important;color:#fff!important}
 .qchat-panel{z-index:710!important}
 @media(max-width:600px){.qchat-toggle{right:9px!important;bottom:83px!important;min-height:54px;padding:6px 10px 6px 7px!important}.qchat-toggle .robot-face{width:40px;height:40px;font-size:24px}.qchat-toggle .robot-label{font-size:11px}.qed3-whatsapp{right:9px!important;bottom:13px!important;min-height:51px;padding:10px 13px!important}.qchat-panel{bottom:151px!important;max-height:calc(100dvh - 175px)!important}}
+
+/* Critical viewport fix: mobile home is a vertical page, not a cropped desktop slide */
+@media(max-width:900px){
+ html,body{width:100%;max-width:100%;overflow-x:clip}
+ .page-home .woodDeck{height:auto!important;min-height:0!important;overflow:visible!important;scroll-snap-type:none!important;width:100%!important;max-width:100%!important}
+ .page-home .woodDeck>.woodSlide,.page-home .woodDeck>.wfSlide,.page-home #home,.page-home #story,.page-home #categories,.page-home #trade{box-sizing:border-box;width:100%!important;max-width:100%!important;height:auto!important;min-height:0!important;scroll-snap-align:none!important;overflow:hidden!important;padding:36px 16px!important;display:block!important}
+ .page-home .wfContent{display:block!important;width:100%!important;max-width:100%!important;margin:0 auto!important}
+ .page-home .wfColumns{display:flex!important;flex-direction:column!important;gap:24px!important;grid-template-columns:none!important;align-items:stretch!important}
+ .page-home .wfReveal{max-width:100%!important;min-width:0!important;transform:none!important}
+ .page-home .wfSlide h1,.page-home .wfSlide h2{font-size:clamp(26px,7.5vw,42px)!important;line-height:1.35!important;overflow-wrap:break-word}
+ .page-home .wfSlide p{font-size:15px!important;line-height:1.9!important;max-width:100%!important}
+ .page-home .wfButtons{display:flex!important;gap:10px!important;margin:22px 0!important}
+ .page-home .wfButtons a,.page-home .wfPrimary,.page-home .wfSecondary{padding:12px 16px!important;font-size:14px!important;max-width:100%!important}
+ .page-home .wfStage{width:100%!important;max-width:440px!important;height:290px!important;margin:5px auto!important;min-height:0!important}
+ .page-home .wfPhotoMosaic{width:100%;grid-template-rows:140px 140px}
+ .page-home .wfFlipGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+ .page-home .wfFlip{height:185px!important;min-width:0}
+ .page-home .wfTradeVisual{width:100%!important;max-width:100%!important}
+ .page-home .wfScrollCue,.page-home .woodDots{display:none!important}
+ .page-home .woodDeck>.woodSlide{opacity:1!important}
+}
+@media(max-width:420px){.page-home .wfFlipGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.page-home .wfStage{height:235px!important}.page-home .wfButtons a{font-size:12px!important;gap:5px!important}}

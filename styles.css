@@ -368,3 +368,66 @@ body{animation:pageReveal .42s ease both}@keyframes pageReveal{from{opacity:0;tr
 .page-home #story.wfStory .wfPrimary{margin-top:12px}
 }
 @media(max-width:900px){.page-home #story.wfStory{display:flex!important;flex-direction:column;justify-content:center;gap:15px;padding:55px 6%!important}.page-home #story.wfStory>.wfContent{width:100%;max-width:660px}.page-home #story.wfStory h2{overflow-wrap:normal;word-break:normal}}
+
+/* Responsive Qed3 design system */
+.accountModal{padding:16px;overflow:auto}.accountCard{max-width:460px!important;width:min(460px,100%);padding:32px!important;border:1px solid rgba(255,155,85,.27)!important;border-radius:24px!important;background:linear-gradient(155deg,#18252f,#0c141c 70%)!important;box-shadow:0 32px 110px #000b!important;text-align:right}.accountBrand{display:flex;align-items:center;gap:12px;margin-bottom:20px}.accountLogo{height:52px;width:52px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(130deg,#f04e3e,#ffa540);font-size:28px}.accountBrand b{display:block;font-size:25px}.accountBrand small{color:#aebac5;font-size:12px}.accountCard h3{font-size:26px;margin:8px 0}.accountSub{color:#aebac5;line-height:1.7;font-size:14px;margin-bottom:20px}.accountSwitch{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#0b141b;border:1px solid #31414c;padding:5px;border-radius:13px;margin-bottom:18px}.accountSwitch button{padding:12px 8px;border:0;background:transparent;color:#bdcbd4;border-radius:10px;cursor:pointer}.accountSwitch button.selected{background:linear-gradient(120deg,#ee4d3e,#ff963c);color:white;font-weight:bold}.accountCard form label{display:block;margin:13px 0 7px;color:#d9e4ec;font-size:13px}.accountCard form input,.accountCard form select{width:100%;min-height:48px;border:1px solid #344650;background:#111d25;border-radius:10px;padding:0 13px;color:#fff;font-size:15px}.accountCard form input:focus{outline:2px solid #f68a4a;outline-offset:1px}.accountPassword{position:relative}.accountPassword input{padding-left:75px!important}.accountPassword button{position:absolute;left:6px;top:6px;bottom:6px;background:#273640;color:#fff;border:none;border-radius:8px;padding:0 11px;cursor:pointer}.accountSubmit{margin-top:20px;padding:14px}.accountLegal{font-size:11px;color:#91a1aa;line-height:1.7;margin-top:16px}#authInlineStatus{display:block;color:#ffac84;margin-top:12px;min-height:18px}.accountCard .close{top:12px;left:12px}
+@media(max-width:1100px){
+ .header{gap:12px;padding-inline:3vw}
+ .header .topSearch{width:min(230px,26vw)}
+ .header nav{gap:12px}
+ .header nav a{font-size:12px}
+}
+@media(max-width:900px){
+ .header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;min-height:70px;padding:12px 4vw;gap:10px}
+ .header .brand{min-width:0;flex:1}
+ .header .brand b{font-size:clamp(15px,4vw,22px)}
+ .header .brand small{font-size:10px;white-space:normal}
+ .header .actions{gap:6px}
+ .header .topSearch{order:2;width:100%;max-width:none;flex-basis:100%}
+ .header nav{order:3;width:100%;max-height:65vh;overflow-y:auto}
+ .header nav a{padding:12px}
+ .woodDeck{height:auto!important;max-height:none!important;overflow:visible!important;scroll-snap-type:none!important}
+ .page-home .wfSlide{min-height:0!important;height:auto!important;max-height:none!important;padding:70px 5% 48px!important}
+ .page-home .wfSlide .wfReveal{opacity:1!important;transform:none!important}
+ .page-home .wfFlipGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .page-home .woodDots{display:none}
+ .page-shop .shopIntro{margin:14px 4vw 0}
+}
+@media(max-width:600px){
+ .header .brand small{display:none}
+ .header .actions .iconBtn{padding:9px;min-width:40px}
+ .header .actions #accountBtn span{display:none}
+ .page-home .wfSlide{padding:48px 5% 36px!important}
+ .page-home .wfSlide h1,.page-home .wfSlide h2{font-size:clamp(29px,8vw,39px)!important;line-height:1.25}
+ .page-home .wfStage{height:260px;max-width:100%}
+ .page-home .wfFlip{height:185px}
+ .page-home .wfFace{padding:8px;gap:7px}
+ .page-home .wfFace img{height:90px}
+ .page-home .wfFace b{font-size:13px}
+ .page-home .wfBack small{font-size:11px}
+ .page-home .wfTradeVisual{height:260px}
+ .page-home .wfTradeVisual>div{padding:30px 15px 15px;display:block}
+ .page-home .wfTradeVisual b{font-size:26px}
+ .page-shop .shopIntro{padding:26px 20px;border-radius:20px}
+ .page-shop .shopIntro h1{font-size:clamp(30px,8vw,42px)}
+ .page-shop .shopIntro p{font-size:14px}
+ .accountModal{padding:10px}
+ .accountCard{padding:24px 18px!important;border-radius:18px!important;max-height:calc(100dvh - 24px);overflow-y:auto}
+ .accountCard h3{font-size:23px}
+ .modal .modalCard{max-width:calc(100vw - 20px)}
+ input,select,textarea{font-size:16px}
+ .productCard img{object-fit:contain}
+}
+@media(max-width:380px){
+ .page-home .wfFlipGrid{grid-template-columns:1fr}
+ .header .brand b{font-size:15px}
+ .header .gear{font-size:23px}
+}
+@media(hover:none){
+ .page-home .wfFlip .wfFlipInner{transform:none!important}
+ .page-home .wfBack{display:none}
+ .page-shop .productCard:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}
+}

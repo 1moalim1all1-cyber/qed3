@@ -3,6 +3,12 @@ const am=await import('https://www.gstatic.com/firebasejs/10.14.1/firebase-app.j
 const fs=await import('https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js');
 const app=am.getApps().length?am.getApp():am.initializeApp(firebaseConfig);
 const db=fs.getFirestore(app);
+// Stable per-page keys for visible editorial content; product listings/forms are excluded.
+const page=location.pathname.split('/').pop()?.replace('.html','')||'index';
+document.querySelectorAll('main h1, main h2, main h3, main p, main img, footer p').forEach((el,index)=>{
+ if(el.closest('form, .productCard, .cartItems, .accountCard, .modal, .checkoutForm')||el.hasAttribute('data-site-edit'))return;
+ el.dataset.siteEdit=page+'.content.'+index;
+});
 let settings={};
 const ref=fs.doc(db,'siteSettings','public');
 function apply(){document.querySelectorAll('[data-site-edit]').forEach(el=>{const key=el.dataset.siteEdit,val=settings[key];if(typeof val!=='string')return;if(el.tagName==='IMG'){if(/^https:\/\/|^assets\//.test(val))el.src=val}else el.textContent=val});let link=document.getElementById('qed3WhatsApp');if(!link){link=document.createElement('a');link.id='qed3WhatsApp';link.className='qed3-whatsapp';link.target='_blank';link.rel='noopener noreferrer';link.textContent='☎ واتساب';link.setAttribute('aria-label','مراسلة المتجر على واتساب');document.body.appendChild(link)}const phone=String(settings.whatsapp||'').replace(/\D/g,'');link.hidden=!/^[1-9]\d{9,14}$/.test(phone);if(!link.hidden)link.href='https://wa.me/'+phone+'?text='+encodeURIComponent('أهلاً، محتاج استفسر عن قطعة غيار من Qed3')}

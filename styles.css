@@ -448,3 +448,17 @@ body{animation:pageReveal .42s ease both}@keyframes pageReveal{from{opacity:0;tr
 .adminEntry{display:inline-flex;align-items:center;white-space:nowrap;padding:10px 14px;border-radius:12px;background:linear-gradient(110deg,#fa713c,#d83d39);color:#fff!important;font-weight:700;font-size:13px}
 .adminEntry[hidden]{display:none!important}
 @media(max-width:600px){.adminEntry{order:3;width:100%;justify-content:center;padding:12px}}
+
+/* Compact cart fix 2026-10-18: small popover, reliable close button */
+#cartDrawer.drawer{position:fixed!important;top:auto!important;bottom:78px!important;right:16px!important;left:auto!important;width:min(360px,calc(100vw - 24px))!important;height:auto!important;max-height:min(540px,calc(100dvh - 110px))!important;min-height:0!important;transform:translateY(20px) scale(.97)!important;transform-origin:bottom right;opacity:0;visibility:hidden;pointer-events:none;border:1px solid #475965;border-radius:20px;box-shadow:0 24px 76px #000a;z-index:250;display:flex;flex-direction:column;overflow:hidden;transition:opacity .2s,transform .2s,visibility .2s}
+#cartDrawer.drawer.open{transform:translateY(0) scale(1)!important;opacity:1;visibility:visible;pointer-events:auto}
+#cartDrawer .drawerHead{padding:12px 14px;flex:0 0 auto}
+#cartDrawer .drawerHead h3{font-size:16px;margin:0}
+#cartDrawer #closeCart{display:grid;place-items:center;width:38px;height:38px;background:#3b2528;border-radius:10px;font-size:27px;line-height:1;flex:0 0 auto}
+#cartDrawer .cartItems{flex:0 1 auto;min-height:0;max-height:220px;overflow-y:auto;padding:10px 12px}
+#cartDrawer .cartItem{grid-template-columns:52px minmax(0,1fr) 28px;gap:8px;margin-bottom:8px;padding:8px}
+#cartDrawer .cartItem img{width:52px;height:52px}
+#cartDrawer .drawerFoot{flex:0 1 auto;padding:10px 14px;overflow-y:auto;min-height:0;max-height:calc(100dvh - 230px)}
+#cartDrawer .cartCheckoutToggle{margin-top:8px;min-height:40px}
+#cartDrawer #checkoutForm{max-height:45dvh;overflow-y:auto}
+@media(max-width:600px){#cartDrawer.drawer{right:8px!important;bottom:68px!important;width:min(335px,calc(100vw - 16px))!important;max-height:min(440px,calc(100dvh - 92px))!important;border-radius:17px}#cartDrawer .cartItems{max-height:160px}#cartDrawer .drawerFoot{max-height:calc(100dvh - 195px)}}

@@ -198,3 +198,17 @@ footer{max-width:1320px;margin:0 auto;padding:30px 2vw 50px;display:flex;justify
 
 /* Storefront update */
 .shopToolbar{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:0 0 20px;padding:14px;border:1px solid rgba(255,255,255,.09);border-radius:20px;background:rgba(255,255,255,.035)}.shopToolbar label{display:flex;align-items:center;gap:10px;color:#dbe4eb;font-size:13px}.shopToolbar select{padding:10px;border-radius:12px;color:#fff;background:#14212a;border:1px solid #364651}.shopToolbar span{margin-inline-start:auto;color:#a9bbc7}.productOpen{display:block;width:100%;border:0;background:transparent;padding:0;color:inherit;cursor:pointer;text-align:right}.productOpen img{width:100%}.productOpen h3{font:inherit;font-weight:700;font-size:20px;margin:0 0 6px}.qty{display:flex;align-items:center;gap:10px;margin-top:8px}.qty button{height:28px;width:28px;border:1px solid #45545c;border-radius:8px;background:#26353e;color:white;cursor:pointer}.productDetail{width:min(780px,94vw);display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}.productDetail>img{width:100%;height:280px;object-fit:contain;background:#19252c;border-radius:18px;padding:12px}.productDetail strong{display:block;color:#ffc489;font-size:24px;margin:14px 0}.productDetail p{color:#c1cdd5;line-height:1.8}.detailDisclaimer{font-size:12px}@media(max-width:650px){.productDetail{grid-template-columns:1fr}.productDetail>img{height:180px}.shopToolbar label{width:100%;justify-content:space-between}.shopToolbar select{min-width:55%}}
+
+/* Qed3 multi-page navigation & hover quick-details */
+body{animation:pageReveal .42s ease both}@keyframes pageReveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.page-shop .hero,.page-shop .experience,.page-shop .showcase,.page-shop .promoWrap,.page-shop .business,.page-shop .newsletter{display:none!important}
+.page-wholesale .hero,.page-wholesale .experience,.page-wholesale #categories,.page-wholesale .showcase,.page-wholesale #products,.page-wholesale .newsletter{display:none!important}
+.page-contact .hero,.page-contact .experience,.page-contact #categories,.page-contact .showcase,.page-contact #products,.page-contact .promoWrap,.page-contact .business{display:none!important}
+.page-home #products,.page-home .promoWrap,.page-home .business,.page-home .newsletter{display:none!important}
+.page-shop #products,.page-wholesale .promoWrap,.page-contact .newsletter{padding-top:75px;min-height:55vh}
+.productCard{transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;position:relative}
+.productCard:hover{box-shadow:0 24px 60px rgba(0,0,0,.55);border-color:rgba(255,154,61,.45)}
+.productCard .productOpen:after{content:"عرض التفاصيل والمواصفات";position:absolute;bottom:68px;right:18px;left:18px;background:rgba(9,16,23,.94);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:11px;text-align:center;font-size:13px;opacity:0;transform:translateY(8px);transition:.22s;pointer-events:none}
+@media(hover:hover){.productCard:hover .productOpen:after{opacity:1;transform:translateY(0)}}
+.productCard .productOpen:focus-visible{outline:2px solid #ff9a3d}
+@media(prefers-reduced-motion:reduce){body{animation:none}*{scroll-behavior:auto!important;transition:none!important}}

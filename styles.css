@@ -212,3 +212,47 @@ body{animation:pageReveal .42s ease both}@keyframes pageReveal{from{opacity:0;tr
 @media(hover:hover){.productCard:hover .productOpen:after{opacity:1;transform:translateY(0)}}
 .productCard .productOpen:focus-visible{outline:2px solid #ff9a3d}
 @media(prefers-reduced-motion:reduce){body{animation:none}*{scroll-behavior:auto!important;transition:none!important}}
+
+/* QED3 2026 homepage art direction */
+.page-home{background:#070a0c}
+.page-home .header{border-bottom-color:rgba(255,255,255,.11)}
+.page-home #environmentNote{max-width:none;margin:0;padding:9px 5%;border:0;border-radius:0;text-align:center;font-size:12px;background:#151e23;color:#c8d3db}
+.page-home .qhero{min-height:min(760px,88vh);position:relative;isolation:isolate;display:flex;align-items:center;overflow:hidden;background:#0a1015}
+.page-home .qhero-art{position:absolute;inset:0;z-index:-2}
+.page-home .qhero-art img{width:100%;height:100%;object-fit:cover;object-position:59% 50%;filter:saturate(.78) contrast(1.08) brightness(.7);transform:scale(1.025);animation:qheroZoom 14s ease-in-out infinite alternate}
+.page-home .qhero-art-shade{position:absolute;inset:0;background:linear-gradient(270deg,rgba(4,9,13,.95) 0%,rgba(4,9,13,.83) 30%,rgba(4,9,13,.25) 70%,rgba(4,9,13,.05) 100%),linear-gradient(0deg,rgba(4,9,13,.62),transparent 35%)}
+.page-home .qhero-copy{padding:95px max(5.5vw,25px) 95px 3%;max-width:860px;position:relative}
+.page-home .qhero-kicker,.page-home .qeyebrow{color:#ffb07c;letter-spacing:.18em;font:700 12px Tahoma,Arial,sans-serif;display:flex;align-items:center;gap:10px}
+.page-home .qhero-pulse{display:inline-block;background:#ff8046;border-radius:50%;width:8px;height:8px;box-shadow:0 0 14px #fa643f}
+.page-home .qhero h1{font-size:clamp(48px,6.4vw,105px);font-weight:900;letter-spacing:-.04em;line-height:1.13;margin:23px 0 28px;color:#fff;text-wrap:balance}
+.page-home .qhero h1 em{font-style:normal;color:#f18b4f}
+.page-home .qhero-copy>p{font-size:clamp(15px,1.25vw,19px);line-height:1.95;color:#d5dee4;max-width:555px;margin:0 0 32px}
+.page-home .qhero-actions{display:flex;gap:13px;flex-wrap:wrap}
+.page-home .qhero-actions a{display:inline-flex;align-items:center;justify-content:space-between;gap:30px;min-height:58px;padding:15px 24px;border-radius:4px;font-weight:700;transition:transform .25s,background .25s}
+.page-home .qhero-actions a:hover{transform:translateY(-4px)}
+.page-home .qhero-main{background:#f17a42;color:#0a1116}
+.page-home .qhero-outline{border:1px solid rgba(255,255,255,.55);color:#fff;background:rgba(0,0,0,.12)}
+.page-home .qhero-brief{display:flex;gap:24px;margin-top:48px;color:#aebbc5;font-size:12px;letter-spacing:.06em}
+.page-home .qhero-side{position:absolute;left:25px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;display:flex;gap:35px;color:#e1e6e9;letter-spacing:.25em;font-size:10px}
+.page-home .qhero-scroll{position:absolute;bottom:26px;right:max(5.5vw,25px);display:flex;gap:18px;align-items:center;font-size:13px;color:#fff}
+.page-home .qhero-scroll span{display:grid;place-items:center;width:30px;height:30px;border:1px solid #80919d;border-radius:50%}
+.page-home .qstatement{max-width:1320px;margin:auto;padding:115px 3vw 80px;display:grid;grid-template-columns:1fr .8fr;align-items:end;gap:55px}
+.page-home .qstatement>div>span{font-size:13px;color:#f18b4f}
+.page-home .qstatement h2,.page-home .qfeature h2{font-size:clamp(38px,4.3vw,72px);line-height:1.25;margin:20px 0 0;letter-spacing:-.04em}
+.page-home .qstatement h2 strong,.page-home .qfeature h2 strong{color:#ff9a61}
+.page-home .qstatement>p{max-width:540px;color:#b6c3cb;line-height:2;font-size:17px}
+.page-home #categories{padding-bottom:105px}
+.page-home #categories .categoryGrid{grid-template-columns:repeat(5,minmax(0,1fr))}
+.page-home #categories .categoryCard{border-radius:8px;background:#121a20;min-height:200px;justify-content:center;transition:transform .3s,background .3s}
+.page-home #categories .categoryCard:hover{transform:translateY(-8px);background:#1b262e}
+.page-home #categories .categoryCard img{height:103px}
+.page-home .qfeature{max-width:1320px;margin:15px auto 90px;display:grid;grid-template-columns:1.2fr 1fr;min-height:470px;background:#131e26;overflow:hidden}
+.page-home .qfeature-img{min-height:430px}
+.page-home .qfeature-img img{width:100%;height:100%;object-fit:cover}
+.page-home .qfeature-text{padding:65px 55px;display:flex;flex-direction:column;justify-content:center}
+.page-home .qfeature-text p{color:#b9c7d0;font-size:17px;line-height:2;margin:24px 0}
+.page-home .qfeature-text>a{font-weight:700;color:#ffad75;border-bottom:1px solid #b86a48;padding-bottom:12px;align-self:flex-start}
+@keyframes qheroZoom{to{transform:scale(1.075)}}
+@media(max-width:900px){.page-home .qhero{min-height:650px}.page-home .qhero-copy{padding:95px 6%}.page-home .qhero-art-shade{background:linear-gradient(270deg,rgba(4,9,13,.91),rgba(4,9,13,.48))}.page-home .qhero-side{display:none}.page-home .qstatement,.page-home .qfeature{grid-template-columns:1fr}.page-home .qstatement{padding:70px 5% 50px;gap:14px}.page-home .qfeature-text{padding:36px}.page-home #categories .categoryGrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.page-home .qhero{min-height:620px}.page-home .qhero-copy{padding:65px 6% 90px}.page-home .qhero h1{font-size:43px}.page-home .qhero-actions a{width:100%}.page-home .qhero-brief{gap:13px;margin-top:28px;font-size:10px}.page-home .qfeature-img{min-height:240px}.page-home .qfeature h2{font-size:38px}.page-home #categories .categoryCard{min-height:150px}.page-home #categories .categoryCard img{height:75px}}
+@media(prefers-reduced-motion:reduce){.page-home .qhero-art img{animation:none}}

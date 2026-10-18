@@ -24,6 +24,27 @@ service cloud.firestore {
       allow update: if admin() || (owner(uid) && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['name','phone','dealerRequested']));
       allow delete: if admin();
     }
+    function validOrderItem(item) {
+      return item is map
+        && item.keys().hasOnly(['productId','quantity'])
+        && item.keys().hasAll(['productId','quantity'])
+        && item.productId is string && item.productId.size() > 0 && item.productId.size() <= 128
+        && item.quantity is int && item.quantity > 0 && item.quantity <= 100;
+    }
+    // Firestore Rules has no general list iteration. Validate each of at most 10 lines.
+    function validOrderItems(items) {
+      return items is list && items.size() > 0 && items.size() <= 10
+      && (items.size() <= 0 || validOrderItem(items[0]))
+      && (items.size() <= 1 || validOrderItem(items[1]))
+      && (items.size() <= 2 || validOrderItem(items[2]))
+      && (items.size() <= 3 || validOrderItem(items[3]))
+      && (items.size() <= 4 || validOrderItem(items[4]))
+      && (items.size() <= 5 || validOrderItem(items[5]))
+      && (items.size() <= 6 || validOrderItem(items[6]))
+      && (items.size() <= 7 || validOrderItem(items[7]))
+      && (items.size() <= 8 || validOrderItem(items[8]))
+      && (items.size() <= 9 || validOrderItem(items[9]));
+    }
     match /orders/{id} {
       allow create: if signedIn() && request.resource.data.userId == request.auth.uid
         && request.resource.data.status == 'pending_review'
@@ -34,12 +55,9 @@ service cloud.firestore {
         && request.resource.data.buyer.phone is string && request.resource.data.buyer.phone.size() >= 10 && request.resource.data.buyer.phone.size() <= 16
         && request.resource.data.buyer.governorate is string && request.resource.data.buyer.governorate.size() > 0 && request.resource.data.buyer.governorate.size() <= 60
         && request.resource.data.buyer.address is string && request.resource.data.buyer.address.size() >= 10 && request.resource.data.buyer.address.size() <= 300
-        && request.resource.data.items is list && request.resource.data.items.size() > 0 && request.resource.data.items.size() <= 60
+        && validOrderItems(request.resource.data.items)
         && request.resource.data.requestedMode in ['retail','wholesale']
-        && (request.resource.data.requestedMode == 'retail' || dealer())
-        && request.resource.data.items[0].keys().hasOnly(['productId','quantity'])
-        && request.resource.data.items[0].quantity is int
-        && request.resource.data.items[0].quantity > 0 && request.resource.data.items[0].quantity <= 100;
+        && (request.resource.data.requestedMode == 'retail' || dealer());
       allow read: if orderManager() || supportAgent() || (signedIn() && resource.data.userId == request.auth.uid);
       allow update: if orderManager();
       allow delete: if admin();

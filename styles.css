@@ -353,3 +353,6 @@ body{animation:pageReveal .42s ease both}@keyframes pageReveal{from{opacity:0;tr
 @media(prefers-reduced-motion:reduce){.page-shop .shopIntro img{animation:none}.page-shop .productCard img{transition:none}}
 
 .woodProgress{position:fixed;top:0;left:0;height:3px;width:100%;background:#f2935c;z-index:150;transform-origin:left center;transition:transform .45s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+
+/* 2026 Qed3 premium coherence + admin permission guide */
+.adminRoles{margin:20px 0;padding:18px 20px;border:1px solid #5d4739;border-radius:16px;background:linear-gradient(105deg,#1b252d,#2b211e);color:#f8f0e9}.adminRoles p{font-size:14px;line-height:1.85;color:#d6e0e8}.adminRoles small{color:#f3b988}.header{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}.page-shop .productCard{overflow:hidden}.page-shop .productCard:focus-within{outline:2px solid #ff9b60;outline-offset:3px}.page-shop .productCard .add{transition:transform .2s,background .2s}.page-shop .productCard .add:hover{transform:scale(1.08)}.page-home .wfPart{will-change:transform}.page-home .wfFlip:focus-visible{outline:3px solid #ff9c6b;outline-offset:4px}

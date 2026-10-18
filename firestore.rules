@@ -66,5 +66,22 @@ service cloud.firestore {
       allow create: if request.resource.data.keys().hasOnly(['email','createdAt']) && request.resource.data.email is string && request.resource.data.email.size() <= 254;
       allow read, update, delete: if admin();
     }
+    match /supportChats/{uid} {
+      allow create: if owner(uid) && request.resource.data.keys().hasOnly(['userId','updatedAt','lastMessage'])
+        && request.resource.data.userId == uid && request.resource.data.lastMessage is string && request.resource.data.lastMessage.size() <= 500;
+      allow read: if owner(uid) || admin() || supportAgent();
+      allow update: if (owner(uid) || admin() || supportAgent())
+        && request.resource.data.userId == uid && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['updatedAt','lastMessage'])
+        && request.resource.data.lastMessage is string && request.resource.data.lastMessage.size() <= 500;
+      allow delete: if admin();
+      match /messages/{messageId} {
+        allow read: if owner(uid) || admin() || supportAgent();
+        allow create: if signedIn() && request.resource.data.keys().hasOnly(['senderId','text','createdAt'])
+          && request.resource.data.senderId == request.auth.uid
+          && request.resource.data.text is string && request.resource.data.text.size() > 0 && request.resource.data.text.size() <= 500
+          && (owner(uid) || admin() || supportAgent());
+        allow update, delete: if false;
+      }
+    }
   }
 }

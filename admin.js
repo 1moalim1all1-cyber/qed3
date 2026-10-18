@@ -69,6 +69,7 @@ async function start(){try{
      await batch.commit();
      $('pform').reset();$('pimgPreview').hidden=true;$('uploadState').textContent='اختار صورة من الكمبيوتر، أو استخدم رابط صورة.';
      productNotice('✅ تمت إضافة المنتج بنجاح، وهتظهر صورته في المتجر');
+     setTimeout(()=>{if(productStatus.textContent.startsWith('✅ تمت إضافة'))productStatus.textContent=''},3500);
      await load();
    }catch(err){
      const reason=err?.message||err?.code||'خطأ غير معروف';
